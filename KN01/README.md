@@ -47,3 +47,12 @@ Ich habe Github anstatt Gitlab verwendet.
 ![gitstatus](../images/gitstatus.png)
 
 ![gitremote-v](../images/gitremote-v.png)
+
+## Basic Linux Commands
+
+![command1](../images/command1.png)
+
+![command2](../images/command2.png)
+
+![command3](../images/command3.png)
+
