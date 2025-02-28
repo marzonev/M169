@@ -2,7 +2,7 @@
 
 <br>
 
-![**Eigenes Titelbild**](./images/titelbild.png) 
+![Titelbild](images/Titelbild.png)
 
 # M169 Repository
 
