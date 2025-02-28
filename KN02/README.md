@@ -60,3 +60,11 @@ Kubernetes ist eine Open-Source-Plattform zur "Container-Orchestrierung".
 
 ### 2. Aufgabe
 
+| **Merkmal**                       | **Amazon EC2**                              | **Azure Virtual Machines**             | **Google Compute Engine**           |
+| --------------------------------- | ------------------------------------------- | -------------------------------------- | ----------------------------------- |
+| **Typ**                           | Virtuelle Maschinen (VMs)                   | Virtuelle Maschinen (VMs)              | Virtuelle Maschinen (VMs)           |
+| **VM-Optionen**                   | Breite Auswahl, inkl. Graviton & Bare Metal | Windows-optimiert, Linux-Unterstützung | Flexible VMs, Preemptible Instances |
+| **Automatische Skalierung**       | Auto Scaling Groups                         | Scale Sets                             | Managed Instance Groups             |
+| **Spot-Instanzen (günstige VMs)** | Spot Instances                              | Azure Spot VMs                         | Preemptible VMs                     |
+| **Container-Unterstützung**       | ECS, EKS (Kubernetes)                       | AKS (Azure Kubernetes Service)         | GKE (Google Kubernetes Engine)      |
+| **Preismodelle**                  | On-Demand, Reserved, Spot                   | Pay-as-you-go, Reserved, Spot          | On-Demand, Committed, Preemptible   |
