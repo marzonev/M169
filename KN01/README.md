@@ -48,11 +48,15 @@ Ich habe Github anstatt Gitlab verwendet.
 
 ![gitremote-v](../images/gitremote-v.png)
 
-## Basic Linux Commands
+## D) Basic Linux Commands
 
 ![command1](../images/command1.png)
 
 ![command2](../images/command2.png)
 
 ![command3](../images/command3.png)
+
+## E) Visual Studio Code
+
+![vscodeextension](../images/vscodeextensions.png)
 
