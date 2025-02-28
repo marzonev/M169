@@ -24,11 +24,11 @@ Bei PaaS werden die oben gennanten Punkte alle vom Cloud anbieter gemanaged auss
 
 Da es um einiges schneller geht, wenn man sich um die Installation und einrichtung kümmern muss. Dazu kann man mehrere Installationen parallel ausführen.
 
+Systeme können auch einfach wiederhergestellt, da die Konfiguration schon im Code festgehalten ist.
+
 #### Was bedeutet Infrastructure as Code (IaC)?
 
 Bei Infrastructure as Code werden Server, Datenbanken usw. mit Scripts aufgesetzt und konfiguriert. Es muss also nicht mehr manuell aufgesetzt werden sondern wird automatisiert aufgesetzt und konfiguriert.
-
-Systeme können auch einfach wiederhergestellt, da die Konfiguration schon im Code festgehalten ist.
 
 ### 2. Aufgabe
 
