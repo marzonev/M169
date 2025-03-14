@@ -1,38 +1,44 @@
 # KN 03
 
-## 1. Teil-Challenge
+## A) Aufsetzen der EC2-Instanz mit IaC-Code - AWS LEARNER LAB
 
-### SSH Zugriff / Docker und Podman
+### 1. Teil-Challenge
+
+#### SSH Zugriff / Docker und Podman
 
 ![ssh-access](../images/ssh-access.png)
 
-### Unterschied zwischen Docker und Podman
+#### Unterschied zwischen Docker und Podman
 
 Podman ist von Haus aus rootless-fähig, d.h. Container können ohne Root-Rechte gestartet werden, was das System sicherer macht. Bei Docker gibt es auch einen Rootless Mode dieser muss aber zuert konfigueriert werden.
 
 Bei Podman gibt es nicht einen dauernd laufenden Daemon-Prozess sondern jeder Container läuft als eigener Prozess. Weniger Angriffsfläche, da es nicht einen dauernd laufenden Prozess gibt.
 
-## 2. Teil-Challenge
+## B) OCI-Images, Container und Registry - BASICS
 
-### Grundlegende Docker Befehle
+### 2. Teil-Challenge
+
+#### Grundlegende Docker Befehle
 
 ![Docker-commands](../images/Docker-commands.png)
 
-### Unterschied zwischen Docker und VMs
+#### Unterschied zwischen Docker und VMs
 
 Bei einer VM wird eine ganze Maschine virtuallisiert (Kernel, Hardware usw...)
 
 Beim Container wird nur die Applikation virtuallisiert inklusive Abhängigkeiten. Container verwenden dabei den Kernel des Hosts.
 
-### Unterschied zwischen Images und Container
+#### Unterschied zwischen Images und Container
 
 Images sind eigentlich Vorlagen für die Erstellung von Containern. Dort sind Abhängikeiten und Anweissungen Bibliotheken und Anweisungen für die Anwendung.
 
 Container werden dann aufgrund dieser Anweisungen aufgesetzt.
 
-### Warum ist eine Registry wie Docker Hub wichtig?
+#### Warum ist eine Registry wie Docker Hub wichtig?
 
 Eine Registry wie Docker Hub ist wichtig, weil sie eine zentrale Plattform zum Speichern, Verwalten und Teilen von Container-Images bietet. Sie erleichtert die Verteilung, Wiederverwendung und Automatisierung von Images, unterstützt CI/CD-Prozesse, verbessert die Sicherheit und ermöglicht eine effiziente Zusammenarbeit in Teams.
 
-### Vorteile isolation Container
+#### Vorteile isolation Container
+
+## C) OCI-Images mit Docker - RUN & ADMINISTRATION 
 
