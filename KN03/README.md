@@ -40,5 +40,48 @@ Eine Registry wie Docker Hub ist wichtig, weil sie eine zentrale Plattform zum S
 
 #### Vorteile isolation Container
 
-## C) OCI-Images mit Docker - RUN & ADMINISTRATION 
+## C) OCI-Images mit Docker - RUN & ADMINISTRATION
 
+### 3. Teil-Challenge
+
+#### Docker Commands
+
+##### Ungebrauchte Volumes löschen
+
+``` docker
+docker volume prune
+```
+
+##### Volume erstellen
+
+``` docker
+docker volume create mydbstore
+```
+
+##### Mariadb Container mit dem Volume erstellen
+
+``` docker
+docker run --detach --name some-mariadb --env MARIADB_ROOT_PASSWORD=my-secret-pw -v mydbstore:/var/lib/mysql -p 3306:3306 mariadb:latest
+```
+
+##### In Mariadb Datenbank erstellen
+
+![Mariadb-createdb](../images/Mariadb-createdb.png)
+
+##### Wechsel in den Container
+
+``` docker
+docker exec -it <Container-ID> /bin/bash
+```
+
+#### Unterschied persistent/non-persistent
+
+Bei persistent Volumes wird dieses nach der Löschung des Containers nicht mitgelöscht. Das Volume kann dann wieder von einem anderen Container verwendet werden.
+
+Ist gut wenn z.B. auf eine neue Version geupdated wird oder wenn ein Volume von mehrere Containern gebraucht wird.
+
+## D) OCI-Images mit Docker - BUILD & CUSTOMIZATION
+
+### 4. Teil-Challenge
+
+![container-website](../images/container-website.png)
