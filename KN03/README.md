@@ -84,4 +84,17 @@ Ist gut wenn z.B. auf eine neue Version geupdated wird oder wenn ein Volume von 
 
 ### 4. Teil-Challenge
 
+#### Bearbeitete Webseite
+
 ![container-website](../images/container-website.png)
+
+#### Inhalt Dockerfile und index.html
+
+![dockerfile-indexhtml](../images/dockerfile-indexhtml.png)
+
+#### Docker build
+
+![docker-build](../images/docker-build.png)
+
+## E) Container Netzwerk - VERTIEFUNG
+
