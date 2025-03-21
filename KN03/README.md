@@ -98,3 +98,14 @@ Ist gut wenn z.B. auf eine neue Version geupdated wird oder wenn ein Volume von 
 
 ## E) Container Netzwerk - VERTIEFUNG
 
+### 5. Teil-Challenge
+
+#### Eigenes Netzwerk
+
+![mar-mynetwork](../images/mar-mynetwork.png)
+
+"Subnet": "172.19.0.0/16"
+
+Hier sieht man noch den Ubuntu container im Netzwerk.
+
+![ubuntuinnet](../images/ubuntuinnet.png)
