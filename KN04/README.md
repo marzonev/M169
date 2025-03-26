@@ -58,3 +58,15 @@ Die Datenbank hat die IP 172.18.0.3/16
 #### Published Port: 5169, Target Port: 8169
 
 ![publishedtarget-port](../images/publishedtarget-port.png)
+
+## C) Docker Swarm Cluster aufsetzen - SETUP HIGH AVAILABILITY PLATFORM
+
+### IP Matrix
+
+| EC2 Instant | AZ (ändert) | Private IP (Fix) | Role    |
+| :---------- | :---------- | :--------------- | ------- |
+| M169_Node1  | us-east-1a  | 172.31.5.1       | Manager |
+| M169_Node2  | us-east-1a  | 172.31.5.2       | Manager |
+| M169_Node3  | us-east-1d  | 172.31.35.1      | Manager |
+| M169_Node4  | us-east-1d  | 172.31.35.2      | Worker  |
+| M169_Node5  | us-east-1d  | 172.31.35.3      | Worker  |
