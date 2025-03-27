@@ -80,3 +80,64 @@ Die Datenbank hat die IP 172.18.0.3/16
 #### Verfügbarkeit: Sowohl die Manager-Nodes als auch die Worker-Nodes sind über mehrere AZs verteilt
 
 ![availability-zones](../images/availability-zones.png)
+
+## D) Docker Swarm Imperativ - CONTAINER ORCHESTRATION: ENTRY-LEVEL
+
+### 4. Teil-Challenge
+
+#### Erstellen Sie nun mit der imperativen Methode (gemäss Tutorial oben) einen eigenen Service mit neuen Bedingungen (unten aufgelistet)
+
+![servicels](../images/servicels.png)
+
+![clusterworking](../images/clusterworking.png)
+
+#### Ergänzen Sie die bestehenden 5 Container mit 5 weiteren. Nutzen Sie dazu den Befehl docker service scale und ergänzen Sie diesen so, dass anschliessend 10 Container verteilt auf zwei Worker-Nodes laufen
+
+![service-scale](../images/service-scale.png)
+
+Hier sieht man das die unter 5 neu erstellt wurden, da diese erst seit 12 Sekunden aktiv sind.
+
+#### Checken Sie nun, ob und wie die  10 Container auf den beiden Worker-Nodes verteilt sind (Wechseln Sie dazu auf die Terminals von Worker-Node 4 und 5) - mit docker container ls sehen sie, dass diese gleichmässig verteilt sind
+
+##### Node 4
+
+![Node4](../images/Node4.png)
+
+##### Node 5
+
+![Node5](../images/Node5.png)
+
+#### Löschen Sie nun 3 Container auf dem Worker-Node 4 (Wechseln Sie dazu auf das Terminal von Worker-Node 4)
+
+![3deleted](../images/3deleted.png)
+
+#### Checken Sie nun auf einem Manager-Node mit docker service.... Erklären Sie folgende Fragen:
+
+![checkdeleted](../images/checkdeleted.png)
+
+##### Wieviele Container sollten es gemäss Desired State sein?
+
+Gemäss Desired State sollten es 10 Container sein
+
+##### Wieviele Container sind es gemäss Observed State?
+
+Es sind 10 Container gestartet
+
+##### Sind die Container gleichmässig auf den Worker-Nodes verteilt?
+
+Ja sie sind gleichmässig verteilt. Das sieht man unter dem Abschnitt Node
+
+##### Was ist passiert, nachdem Sie die drei Container auf Worker-Node4 gelöscht haben?
+
+Es hat automatisch 3 weiter Container gestartet, da es dauerhaft versucht den Desired State zu erreichen.
+
+##### Wie nennt man diesen Prozess in der Fachsprache?
+
+Self-Healing
+
+#### Lab beenden: Wenn die Schritte oben abgeschlossen, dokumentiert und verstanden sind, können Sie das Lab löschen.
+
+![Service-deleted](../images/Service-deleted.png)
+
+![Service-deleted-node](../images/Service-deleted-node.png)
+
