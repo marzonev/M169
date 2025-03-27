@@ -111,7 +111,7 @@ Hier sieht man das die unter 5 neu erstellt wurden, da diese erst seit 12 Sekund
 
 ![3deleted](../images/3deleted.png)
 
-#### Checken Sie nun auf einem Manager-Node mit docker service.... Erklären Sie folgende Fragen:
+#### Checken Sie nun auf einem Manager-Node mit docker service.... Erklären Sie folgende Fragen
 
 ![checkdeleted](../images/checkdeleted.png)
 
@@ -135,9 +135,17 @@ Es hat automatisch 3 weiter Container gestartet, da es dauerhaft versucht den De
 
 Self-Healing
 
-#### Lab beenden: Wenn die Schritte oben abgeschlossen, dokumentiert und verstanden sind, können Sie das Lab löschen.
+#### Lab beenden: Wenn die Schritte oben abgeschlossen, dokumentiert und verstanden sind, können Sie das Lab löschen
 
 ![Service-deleted](../images/Service-deleted.png)
 
 ![Service-deleted-node](../images/Service-deleted-node.png)
+
+## E) Docker Swarm Deklarativ - CONTAINER ORCHESTRATION: ADVANCED-LEVEL
+
+### 5. Teil-Challenge
+
+#### Erstellen Sie nun für die deklarative Anwendung (gemäss Tutorial oben) einen eigenen Service mit neuen Bedingungen (unten aufgelistet)
+
+![deploy-declerative](../images/deploy-declerative.png)
 
