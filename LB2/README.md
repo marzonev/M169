@@ -1,56 +1,71 @@
-# Notizen-App mit Markdown-Vorschau
+# Projektdokumentation – Notizen-App mit Markdown-Editor
 
-## Projekttitel
+## 📌 Projekttitel
 Notizen-App mit Markdown-Editor
 
-## Projektbeschreibung
-In diesem Projekt entwickeln wir eine containerisierte Web-Applikation zum Erstellen, Bearbeiten und Anzeigen von Notizen. Die Notizen unterstützen das Markdown-Format, wodurch Nutzer Inhalte strukturiert darstellen können. 
+## 👥 Team
+- [Dein Name]
+- Gabriel
 
-Die Applikation besteht aus einem Frontend-Service mit einer benutzerfreundlichen Editor-Oberfläche und einem Backend-Service, der die Notizen speichert und über eine REST-API zur Verfügung stellt. Optional können Notizen als Datei exportiert oder in einer Datenbank gespeichert werden.
+## 📝 Projektbeschreibung
+Unsere Applikation ist eine containerisierte Webanwendung zur Erstellung, Bearbeitung und Verwaltung von Notizen im Markdown-Format. Der Fokus liegt auf Benutzerfreundlichkeit, Markdown-Kompatibilität und einem klar strukturierten technischen Aufbau. Die App besteht aus einem React-Frontend mit Live-Preview sowie einem Backend zur persistenten Speicherung der Notizen in einer Datenbank.
 
-## Ziele (SMART)
+## 🎯 Projektziele (SMART)
+1. Ich entwickle eine containerisierte Web-Applikation (Frontend & Backend) zur Erstellung und Speicherung von Markdown-Notizen bis spätestens [Abgabedatum].
+2. Der integrierte Editor unterstützt mindestens 5 Markdown-Funktionen, darunter fette/kursive Formatierung, Listen, Überschriften und Codeblöcke.
+3. Die Anwendung wird mittels Docker Compose bereitgestellt, dokumentiert und ist jederzeit reproduzierbar über ein Gitlab-Repository mit nachvollziehbarer Commit-History.
 
-1. **Spezifisch:** Eine funktionierende Web-Applikation entwickeln, die Markdown-Notizen erstellt, bearbeitet und löscht. 
-   **Messbar:** Mindestens 5 Notizen müssen korrekt erstellt, gespeichert und dargestellt werden können.
-   **Erreichbar:** Durch Einsatz von React für das Frontend und Express für das Backend
-   **Relevant:** Ermöglicht strukturierte Dokumentation und Notizerfassung in Markdown
-   **Zeitlich:** Umsetzung innerhalb von 2 Wochen
+## 🛠️ Technologiestack
+- **Frontend**: React, SimpleMDE oder React-Markdown
+- **Backend**: Node.js mit Express *(oder Python Flask)*
+- **Datenbank**: SQLite oder PostgreSQL
+- **Containerisierung**: Docker, Docker Compose
+- **Repository**: GitLab
 
-2. **Spezifisch:** Die gesamte Anwendung soll mit Docker containerisiert sein.
-   **Messbar:** Docker Compose startet Frontend, Backend und Datenbank
-   **Erreichbar:** Mit Basis-Docker-Knowhow
-   **Relevant:** Erfüllt IaC-Anforderung von M169
-   **Zeitlich:** Containerisierung innerhalb von 2 Tagen umsetzen
+## ⚙️ Aufbau & Architektur
+```
+notizen-app/
+├── frontend/         # React App mit Markdown-Editor
+├── backend/          # REST API zur Notiz-Verwaltung
+├── docker-compose.yml
+└── README.md         # Projektdokumentation
+```
 
-3. **Spezifisch:** GitLab-Repository strukturiert dokumentieren
-   **Messbar:** Mindestens 10 Commits mit aussagekräftigen Messages und README mit Setup-Anleitung
-   **Erreichbar:** Durch kontinuierliches Arbeiten mit Git
-   **Relevant:** Nachvollziehbare Entwicklung ist Teil der Bewertung
-   **Zeitlich:** Während der gesamten Projektdauer fortlaufend
+## 🔄 Ablauf / Vorgehen
+1. Projektinitialisierung & Struktur im GitLab-Repo aufbauen
+2. Frontend entwickeln mit Markdown-Editor + Preview
+3. REST API und Datenbankspeicherung im Backend
+4. Dockerisierung von Frontend und Backend
+5. Setup von Docker Compose und Tests
+6. Dokumentation, Demos und Präsentation vorbereiten
 
-## Services (Container)
-- **notizen-frontend**: React/Vue App mit Markdown-Editor und Live-Vorschau
-- **notizen-backend**: Express.js oder Flask API mit Endpunkten für Notizen
-- **notizen-db** (optional): MongoDB oder SQLite als Datenbankcontainer
+## 🔐 Sicherheit
+- Keine offenen Ports außer HTTP/HTTPS
+- Keine vertraulichen Daten im Repo (Umgang mit `.env`)
+- Dockerfiles mit Minimal-Images (z. B. `alpine`)
 
-## Technologie-Stack
-- React.js oder Vue.js
-- Express.js oder Flask
-- Docker / Docker Compose
-- Markdown-Parser (z. B. marked.js, react-markdown)
-- GitLab für Versionierung
+## 🧪 Tests
+- Manuelle Tests der Markdown-Features
+- API-Tests mit Postman
+- Container-Tests via Compose-Setup
 
-## Extras / Erweiterungen
-- Export als PDF
-- Dark Mode
-- Authentifizierung (JWT oder Basic Auth)
-- Kategorien oder Tags für Notizen
+## 📸 Screenshots
+*Hier Screenshots der App einfügen: Editor, Vorschau, DB-Test etc.*
 
-## Speicherort
-- GitLab Repository: `M169-Services/<Projektname>`
-- Dokumentation in Markdown im Repo abgelegt
+## 📽️ Präsentation
+Ein 3–5-minütiges Video mit:
+- Kurzvorstellung des Projekts
+- Live-Demo der App
+- Verweis auf GitLab-Repo und Doku
 
-## Abgabe
-- Projekt als Zip (via Teams)
-- Video-Demo (3–5 Minuten) mit Slides und Live-Vorstellung
+## 🔗 GitLab-Repository
+[Link zum Repository einfügen]
+
+## 📦 Abgabeobjekte
+- GitLab Repo mit Code und Markdown-Doku
+- ZIP-File des Projekts
+- Präsentationsvideo (MP4)
+
+---
+*Stand: [Datum einfügen]*
 
