@@ -149,3 +149,28 @@ Self-Healing
 
 ![deploy-declerative](../images/deploy-declerative.png)
 
+![jaaaaaaaaaaaaa](../images/jaaaaaaaaaaaa.png)
+
+#### Wenden Sie nun die deklarative Methode an und Löschen Sie 2 der 6 Replicas, indem Sie im Manifest (compose.yaml) die entsprechende Zeile anpassen.
+
+![declarativerm](../images/declarativerm.png)
+
+#### Ausfall eines Nodes (Server) simulieren terminieren Node 4.
+
+![nodeausfall](../images/nodeausfall.png)
+
+##### Wieviele Container sollten es gemäss Desired State sein?
+
+4 Container wie im Docker compose angegeben
+
+##### Wieviele Container sind es gemäss Observed State?
+
+Auch 4 funktionierende Container
+
+##### Was ist passiert, nachdem Sie den Worker-Node (Node 4) terminiert haben?
+
+Als die Container nicht mehr online waren, merkte der Manager, dass der Desired State nicht mehr stimmt und die Container auf der Node 5 gestartet.
+
+##### Wie nennt man diesen Prozess in der Fachsprache?
+
+Self Healing
