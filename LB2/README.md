@@ -4,7 +4,7 @@
 Notizen-App mit Markdown-Editor
 
 ## 👥 Team
-- [Dein Name]
+- Nevio
 - Gabriel
 
 ## 📝 Projektbeschreibung
