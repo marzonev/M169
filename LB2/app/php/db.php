@@ -1,8 +1,8 @@
 <?php
 $host = 'm169';
-$db   = 'todo';
-$user = 'user';
-$pass = '123456';
+$db   = 'tododb';
+$user = 'M169';
+$pass = 's123456';
 $charset = 'utf8';
 
 $dsn = "pgsql:host=$host;dbname=$db";
