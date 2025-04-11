@@ -8,28 +8,22 @@ Ziel ist es, eine moderne Web-App mit einem React-Frontend, einem API-Backend (N
 
 ## 🚧 Tech-Stack
 
-| Komponente | Technologie |
-|------------|-------------|
-| Frontend   | React + Markdown-Editor |
-| Backend    | Node.js (alternativ Flask) |
-| Datenbank  | PostgreSQL |
-| Orchestrierung | Docker Compose |
-| CI/CD      | GitLab Pipelines + Container Registry |
+| Komponente         | Technologie               |
+| ------------------ | ------------------------- |
+| Frontend           | PHP + NGINX               |
+| Datenbank          | PostgreSQL                |
+| Orchestrierung     | Docker Compose            |
+| Container Registry | Github Container Registry |
 
 ---
 
 ## ⚙️ Features
 
--  Markdown-Editor mit Vorschau
--  REST-API für Notizverwaltung
--  Containerisiert: Frontend, Backend & DB
--  Persistente Daten mit `volumes`
--  Eigene OCI-Images via GitLab Registry
--  Deklaratives Deployment (Compose)
+- Eine containerisierte ToDo-Web-App mit PHP und PostgreSQL.
+- Die Anwendung ermöglicht das Erstellen, Anzeigen und Löschen von Aufgaben direkt über das PHP-Frontend ohne REST API.
+- Die gesamte Applikation wird per Docker Compose aufgebaut und im GitLab-Repository mit verständlicher Dokumentation versioniert.
 
 ---
-
-## 📚 Inhaltsverzeichnis
 
 ## Tabellenstruktur
 
@@ -47,15 +41,15 @@ Ziel ist es, eine moderne Web-App mit einem React-Frontend, einem API-Backend (N
 
 ### Tabelle: tickets
 
-| Spalte        | Typ            | Eigenschaften                                       |
-|---------------|----------------|-----------------------------------------------------|
-| id            | SERIAL         | Primärschlüssel, automatisch steigend               |
-| user_id       | INTEGER        | Fremdschlüssel auf users(id), ON DELETE CASCADE     |
-| title         | VARCHAR(100)   | Nicht NULL                                          |
-| description   | TEXT           | Optional                                            |
-| status        | VARCHAR(20)    | Default: 'open', z. B. open / in_progress / done    |
-| created_at    | TIMESTAMP      | Standardwert: CURRENT_TIMESTAMP                     |
-| due_date      | DATE           | Optional                                            |
+| Spalte      | Typ          | Eigenschaften                                   |
+| ----------- | ------------ | ----------------------------------------------- |
+| id          | SERIAL       | Primärschlüssel, automatisch steigend           |
+| user_id     | INTEGER      | Fremdschlüssel auf users(id), ON DELETE CASCADE |
+| title       | VARCHAR(100) | Nicht NULL                                      |
+| description | TEXT         | Optional                                        |
+| status      | VARCHAR(20)  | Default: 'open', z.B. open / in_progress / done |
+| created_at  | TIMESTAMP    | Standardwert: CURRENT_TIMESTAMP                 |
+| due_date    | DATE         | Optional                                        |
 
 ---
 
