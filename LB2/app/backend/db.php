@@ -13,8 +13,10 @@ $options = [
 
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
-    echo "<h2>Verbindung zur PostgreSQL-Datenbank erfolgreich!</h2>";
+    // Kein echo hier!
 } catch (\PDOException $e) {
     echo "<h2>Verbindungsfehler:</h2>" . $e->getMessage();
+    exit; // Optional: Skript anhalten bei Fehler
 }
+
 ?>
