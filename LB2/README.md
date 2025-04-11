@@ -1,8 +1,8 @@
 # 📝 M169 Notizen-Web-App
 
-Dies ist die Dokumentation zur containerisierten **Markdown-Notizen-App**, entwickelt im Rahmen des Moduls **M169**.
+Dies ist die Dokumentation zur containerisierten **Todo-Liste mit DB im Hintergrund**, entwickelt im Rahmen des Moduls **M169**.
 
-Ziel ist es, eine moderne Web-App mit einem React-Frontend, einem API-Backend (Node.js oder Flask) und einer PostgreSQL-Datenbank bereitzustellen – alles sauber orchestriert mit **Docker Compose** und **GitLab CI/CD**.
+Unsere Web-Applikation ermöglicht es Benutzerinnen und Benutzern, Aufgaben (ToDos) zu erstellen, als erledigt zu markieren oder zu löschen. Die Anwendung ist vollständig containerisiert und basiert auf PHP, welches über einen NGINIX-Webserver läuft. Die Aufgaben werden in einer PostgreSQL-Datenbank gespeichert, die beim Start mit einem init.sql-Skript initialisiert wird.
 
 ---
 
@@ -25,21 +25,55 @@ Ziel ist es, eine moderne Web-App mit einem React-Frontend, einem API-Backend (N
 
 ---
 
-## Tabellenstruktur
+## Datenbank
 
-### Tabelle: users
+Die Datenbank wird durch ein verändertes postgresql image erstellt. Das Image enthält bereits Logindaten zur Datenbank und ein init.sql welches beim ersten Start des Containers alle Tabellen erstellt.
 
-| Spalte       | Typ           | Eigenschaften                          |
-|--------------|----------------|----------------------------------------|
-| id           | SERIAL         | Primärschlüssel, automatisch steigend  |
-| username     | VARCHAR(50)    | Eindeutig, nicht NULL                  |
-| email        | VARCHAR(100)   | Eindeutig, nicht NULL                  |
-| password     | TEXT           | Nicht NULL (gehashter Wert)            |
-| created_at   | TIMESTAMP      | Standardwert: CURRENT_TIMESTAMP        |
+### init.sql
+
+Hier ist das init.sql welches für die automatische Initialisierung der Datenbank ist.
+
+``` sql
+-- init.sql
+
+-- Nutzer-Tabelle
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Ticket-Tabelle
+CREATE TABLE tickets (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    title VARCHAR(100) NOT NULL,
+    description TEXT,
+    status VARCHAR(20) DEFAULT 'open',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    due_date DATE
+);
+```
+
+[init.sql](app/db/init.sql)
+
+### Tabellenstruktur
+
+#### Tabelle: users
+
+| Spalte     | Typ          | Eigenschaften                         |
+| ---------- | ------------ | ------------------------------------- |
+| id         | SERIAL       | Primärschlüssel, automatisch steigend |
+| username   | VARCHAR(50)  | Eindeutig, nicht NULL                 |
+| email      | VARCHAR(100) | Eindeutig, nicht NULL                 |
+| password   | TEXT         | Nicht NULL (gehashter Wert)           |
+| created_at | TIMESTAMP    | Standardwert: CURRENT_TIMESTAMP       |
 
 ---
 
-### Tabelle: tickets
+#### Tabelle: tickets
 
 | Spalte      | Typ          | Eigenschaften                                   |
 | ----------- | ------------ | ----------------------------------------------- |
@@ -53,7 +87,7 @@ Ziel ist es, eine moderne Web-App mit einem React-Frontend, einem API-Backend (N
 
 ---
 
-### Beziehung
+#### Beziehung
 
 - Ein `user` kann mehrere `tickets` haben (1:n)
 - Jedes `ticket` gehört genau zu einem `user`
