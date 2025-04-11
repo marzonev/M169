@@ -37,23 +37,23 @@ Hier ist das init.sql welches für die automatische Initialisierung der Datenban
 -- init.sql
 
 -- Nutzer-Tabelle
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    password TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE users (    -- Erstellt die Tabelle "users"
+    id SERIAL PRIMARY KEY,    -- Erstellt den Primary Key welcher automatisch zählt
+    username VARCHAR(50) UNIQUE NOT NULL,   -- Erstellt das Attribut username. Enthält den Username welcher oben Links auf der Seite angezeigt wird.
+    email VARCHAR(100) UNIQUE NOT NULL,    -- Erstellt das Attribut email. Enthält die email fürs login.
+    password TEXT NOT NULL,    --Erstellt das Attribut password. Enthält das Passwort fürs login.
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP    -- Macht einen Timestamp wann das login erstellt wurde.
 );
 
 -- Ticket-Tabelle
-CREATE TABLE tickets (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    title VARCHAR(100) NOT NULL,
-    description TEXT,
-    status VARCHAR(20) DEFAULT 'open',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    due_date DATE
+CREATE TABLE tickets (    -- Erstellt die Tabelle "users"
+    id SERIAL PRIMARY KEY,    -- Erstellt den Primary Key welcher automatisch zählt
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,    -- Foreign Key der Tabelle users
+    title VARCHAR(100) NOT NULL,    -- Erstellt das Attribut title. Enthält den Title des Tasks
+    description TEXT,    -- Erstellt das Attribut title. Enthält die Beschreibung des Tasks
+    status VARCHAR(20) DEFAULT 'open',    -- Erstellt das Attribut status. Definiert ob der Tasks offen oder geschlossen ist.
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,    -- Erstellt ein Timestamp wann der Task erstellt wurde.
+    due_date DATE    -- Erstellt das Attribut due_date. Enthält das Enddatum für den Task.
 );
 ```
 
@@ -91,3 +91,11 @@ CREATE TABLE tickets (
 
 - Ein `user` kann mehrere `tickets` haben (1:n)
 - Jedes `ticket` gehört genau zu einem `user`
+
+## NGINX Web Server
+
+Ein 
+
+## PHP Applikation
+
+## Compose.yml
