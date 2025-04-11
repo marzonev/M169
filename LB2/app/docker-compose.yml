@@ -5,7 +5,7 @@ services:
     build: ./backend/php
     container_name: m169-php
     volumes:
-      - ./backend/php:/var/www/html
+      - app-data:/var/www/html
 
   nginx:
     build: ./nginx
@@ -13,6 +13,9 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./backend/php:/var/www/html
+      - app-data:/var/www/html
     depends_on:
       - php
+
+volumes:
+  app-data:

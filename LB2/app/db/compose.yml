@@ -1,6 +1,6 @@
 services:
   db:
-    image: m169db
+    image: ghcr.io/marzonev/m169db:latest
     container_name: m169_postgres
     ports:
       - "5432:5432"
