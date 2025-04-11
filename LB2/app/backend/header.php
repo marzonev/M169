@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 <head>
   <meta charset="UTF-8">
   <title>Ticket-System</title>
-  <link rel="stylesheet" href="/backend/php/style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <header>
@@ -14,10 +14,10 @@ if (session_status() === PHP_SESSION_NONE) session_start();
   <nav>
     <?php if (isset($_SESSION['user_id'])): ?>
       Angemeldet als <?= htmlspecialchars($_SESSION['username']) ?> |
-      <a href="/backend/php/auth/logout.php">Logout</a>
+      <a href="/auth/logout.php">Logout</a>
     <?php else: ?>
-      <a href="/backend/php/auth/login.php">Login</a> |
-      <a href="/backend/php/auth/register.php">Registrieren</a>
+      <a href="/auth/login.php">Login</a> |
+      <a href="/auth/register.php">Registrieren</a>
     <?php endif; ?>
   </nav>
   <hr>

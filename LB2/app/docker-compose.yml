@@ -5,7 +5,7 @@ services:
     build: ./backend/php
     container_name: m169-php
     volumes:
-      - app-data:/var/www/html
+      - ./backend/php:/var/www/html/app
 
   nginx:
     build: ./nginx
@@ -17,5 +17,23 @@ services:
     depends_on:
       - php
 
+  db:
+    image: ghcr.io/marzonev/m169db:latest
+    container_name: m169_postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+
 volumes:
   app-data:
+  pgdata:
