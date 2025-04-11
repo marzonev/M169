@@ -2,10 +2,10 @@ version: '3.8'
 
 services:
   php:
-    build: ./backend/php
+    build: ./backend
     container_name: m169-php
     volumes:
-      - ./backend/php:/var/www/html/app
+      - ./backend:/var/www/html
 
   nginx:
     build: ./nginx
