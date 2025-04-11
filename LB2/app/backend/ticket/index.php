@@ -47,6 +47,7 @@ $tickets = $stmt->fetchAll();
         <tr>
           <td><?= htmlspecialchars($ticket['title']) ?></td>
           <td><?= htmlspecialchars($ticket['status']) ?></td>
+	  <td><?= htmlspecialchars($ticket['description']) ?></td>
           <td><?= $ticket['due_date'] ?? '-' ?></td>
           <td>
             <form method="POST" action="delete.php" onsubmit="return confirm('Wirklich löschen?');" style="display:inline;">
