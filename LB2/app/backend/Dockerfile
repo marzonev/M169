@@ -1,4 +1,4 @@
-FROM php:8.2-fpm
+FROM php:8.2-apache
 
 # PostgreSQL-Unterstützung installieren
 RUN apt-get update && apt-get install -y \
@@ -7,5 +7,11 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-#Arbeitsverzeichnis auf App setzen
-WORKDIR /var/www/html/app
+# Rewrite-Modul aktivieren (falls du z. B. .htaccess brauchst)
+RUN a2enmod rewrite
+
+# Arbeitsverzeichnis festlegen
+WORKDIR /var/www/html
+
+# Dateien in den Webroot kopieren
+COPY . /var/www/html/
