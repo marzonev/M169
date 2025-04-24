@@ -20,6 +20,7 @@ $tickets = $stmt->fetchAll();
 <a href="create.php" style="display: inline-block; margin-bottom: 20px; padding: 8px 16px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px;">
   ➕ Ticket erstellen
 </a>
+<input type="button" value="back" onclick="history.back()"/>
 
 <!-- Ticket-Tabelle -->
 <table border="1" cellpadding="5" cellspacing="0">
@@ -42,11 +43,13 @@ $tickets = $stmt->fetchAll();
 	  <td><?= htmlspecialchars($ticket['description']) ?></td>
           <td><?= $ticket['due_date'] ?? '-' ?></td>
           <td>
+            <a href="edit.php?id=<?= $ticket['id'] ?>" style="padding: 5px 10px; background-color: #FFC107; color: white; text-decoration: none; border-radius: 4px; margin-right: 5px;">✏️ Bearbeiten</a>
             <form method="POST" action="delete.php" onsubmit="return confirm('Wirklich löschen?');" style="display:inline;">
-              <input type="hidden" name="id" value="<?= $ticket['id'] ?>">
-              <button type="submit">🗑️ Löschen</button>
-            </form>
+             <input type="hidden" name="id" value="<?= $ticket['id'] ?>">
+             <button type="submit" style="padding: 5px 10px; background-color: #DC3545; color: white; border: none; border-radius: 4px;">🗑️ Löschen</button>
+            </form> 
           </td>
+         </td>
         </tr>
       <?php endforeach; ?>
     <?php endif; ?>

@@ -10,7 +10,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 </head>
 <body>
 <header>
-  <h1>Ticket-System</h1>
+  <h1><a href="/ticket/index.php">Ticket-System</a></h1>
   <nav>
     <?php if (isset($_SESSION['user_id'])): ?>
       Angemeldet als <?= htmlspecialchars($_SESSION['username']) ?> |

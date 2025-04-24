@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <form method="POST">
     <input type="text" name="title" placeholder="Titel" required><br><br>
-    
+
     <textarea name="description" placeholder="Beschreibung" required></textarea><br><br>
     
     <label>Status:</label>
