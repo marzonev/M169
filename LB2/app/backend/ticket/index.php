@@ -17,17 +17,9 @@ $tickets = $stmt->fetchAll();
 
 <h2>Meine Tickets</h2>
 
-<!-- Ticket erstellen -->
-<form method="POST" action="create.php" style="margin-bottom: 20px;">
-  <input type="text" name="title" placeholder="Titel" required>
-  <input type="date" name="due_date">
-  <select name="status">
-    <option value="open">Offen</option>
-    <option value="in_progress">In Bearbeitung</option>
-    <option value="closed">Geschlossen</option>
-  </select>
-  <button type="submit">Ticket erstellen</button>
-</form>
+<a href="create.php" style="display: inline-block; margin-bottom: 20px; padding: 8px 16px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px;">
+  ➕ Ticket erstellen
+</a>
 
 <!-- Ticket-Tabelle -->
 <table border="1" cellpadding="5" cellspacing="0">
