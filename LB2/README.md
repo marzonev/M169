@@ -92,10 +92,57 @@ CREATE TABLE tickets (    -- Erstellt die Tabelle "users"
 - Ein `user` kann mehrere `tickets` haben (1:n)
 - Jedes `ticket` gehört genau zu einem `user`
 
-## NGINX Web Server
-
-Ein 
-
 ## PHP Applikation
+Unsere Web-Applikation  wurde mit 3 verschiedenen Technologieen entwickelt
+- php (Backend- die verbindung zur Datenbank ermöglicht)
+- html (Frontend, das auch dynamisch vom php generiert werden kann)
+- css (Style für das html)
+
+Die Web-Applikation besteht grundsätzlich aus 2 Teilen, Front-end und Back-end.
+Das einte ist sichtbar für den Benutzer, während das andere nur Serversided ist.
+
+### Backend
+Im Backend haben wir verschiedene Funktionen, wobei die wichtigste, die Verbindung zur Datenbank ist.
+
+In der Datei ``db.php`` stehen alle Verbindungsinformationen, damit sich die Web-applikation überhaupt mit der Datenbank verbinden kann.
+
+Zusätzlich haben wir noch einheitliche Footer und Header, um Konsistenz zu gewährleisten. Dies befindet sich in den Dateien ``footer.php`` und ``header.php``
+
+Zuletzt haben wir im Root Verzeichnis noch das Globale CSS file, ``style.css``, dort drin stehen alle Designs, die das HTML übernimmt, um eine Schöne Seite darstellen zu können.
+
 
 ## Compose.yml
+```yml
+version: '3.8'
+
+services:
+  php:
+    build: ./backend
+    container_name: m169-php
+    volumes:
+      - ./backend:/var/www/html
+    ports:
+      - "80:80"  # Apache läuft auf Port 80
+    depends_on:
+      - db
+
+  db:
+    image: ghcr.io/marzonev/m169db:latest
+    container_name: m169_postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+
+volumes:
+  pgdata:
+
+```
