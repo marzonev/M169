@@ -4,7 +4,7 @@ require_once '../db.php';
 
 $error = '';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { # kontrollieren ob Benutzername oder Email bereits existieren
     $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email OR username = :username");
     $stmt->execute([
         'email' => $_POST['email'],
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->fetch()) {
         $error = "Benutzername oder E-Mail existiert bereits.";
     } else {
-        $hashed = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $hashed = password_hash($_POST['password'], PASSWORD_DEFAULT); # Passwort haschen und speichern
         $insert = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (:u, :e, :p)");
         $insert->execute([
             'u' => $_POST['username'],
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'p' => $hashed
         ]);
 
-        header("Location: login.php");
+        header("Location: login.php"); # zur loginseite weiterleiten
         exit;
     }
 }

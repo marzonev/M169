@@ -25,19 +25,17 @@ Unsere Web-Applikation ermöglicht es Benutzerinnen und Benutzern, Aufgaben (ToD
 
 
 ## App Vorschau
-![alt text](image-1.png)
+![index.php](image-7.png)
 
-![alt text](image-4.png)
+![create.php](image-4.png)
 
-![alt text](image-2.png)
+![delete.php](image-2.png)
 
-![alt text](image-3.png)
+![edit.php](image-3.png)
 
-![alt text](image-5.png)
+![login.php](image-5.png)
 
-![
-    
-](image-6.png)
+![register.php](image-6.png)
 ## Datenbank
 
 Die Datenbank wird durch ein verändertes postgresql image erstellt. Das Image enthält bereits Logindaten zur Datenbank und ein init.sql welches beim ersten Start des Containers alle Tabellen erstellt.
@@ -107,32 +105,114 @@ CREATE TABLE tickets (    -- Erstellt die Tabelle "users"
 
 ## PHP Applikation
 
-Unsere Web-Applikation  wurde mit 3 verschiedenen Technologieen entwickelt
-- php (Backend- die verbindung zur Datenbank ermöglicht)
-- html (Frontend, das auch dynamisch vom php generiert werden kann)
-- css (Style für das html)
+Unsere Web-Applikation wurde mit drei verschiedenen Technologien entwickelt:
 
-Die Web-Applikation besteht grundsätzlich aus 2 Teilen, Front-end und Back-end.
-Das einte ist sichtbar für den Benutzer, während das andere nur Serversided ist.
+- **PHP** (Backend – ermöglicht die Verbindung zur Datenbank)
+- **HTML** (Frontend, kann dynamisch von PHP generiert werden )
+- **CSS** (Design für das HTML)
 
-### Backend
-Im Backend haben wir verschiedene Funktionen, wobei die wichtigste, die Verbindung zur Datenbank ist.
+Die Web-Applikation besteht grundsätzlich aus zwei Teilen:
 
-In der Datei ``db.php`` stehen alle Verbindungsinformationen, damit sich die Web-applikation überhaupt mit der Datenbank verbinden kann.
-
-Zusätzlich haben wir noch einheitliche Footer und Header, um Konsistenz zu gewährleisten. Dies befindet sich in den Dateien ``footer.php`` und ``header.php``
-
-Zuletzt haben wir im Root Verzeichnis noch das Globale CSS file, ``style.css``, dort drin stehen alle Designs, die das HTML übernimmt, um eine Schöne Seite darstellen zu können.
+1. **Applikation** – sichtbar für Benutzer
+2. **Authentifikation** – serverseitig, nicht direkt sichtbar
 
 ---
-### Tasks
-Alle Funktionen, die direkt etwas mit der To-do Funktion der Applikation zu tun haben, sind im `ticket/` Ordner zu finden.
-Grundsätzlich sind alle `CRUD` Funktionen verfügbar.
 
-Die Hauptsite findet man unter `index.php`. Dort werden alle To-dos, die dem eingeloggten User gehören, dynamisch angezeigt.
+### Authentifikation
 
-Man findet auch die Knöpfe, die einen auf die Bearbeitungs-seite weiterleiten, und das löschen erlauben.
+Der Authentifikationsbereich umfasst vier PHP-Dateien, die eine sichere Sitzung (Session) für Benutzer ermöglichen.
 
+#### `login.php`
+
+- Ermöglicht den Login mit registrierter E-Mail und Passwort.
+- Gültige Anmeldedaten führen zu einer aktiven Session.
+
+#### `register.php`
+
+Benutzerregistrierung mit folgenden Regeln:
+
+- Benutzername ist einzigartig.
+- E-Mail wurde noch nicht verwendet.
+- Passwort ist ausgefüllt.
+
+#### `session.php`
+
+- Startet eine PHP-Session.
+- Leitet Benutzer zur Login-Seite um, wenn keine Benutzerdaten in der Session gefunden wurden.
+
+#### `logout.php`
+
+- Beendet die aktuelle Session.
+- Entfernt alle Session-Daten (z. B. Benutzerinformationen).
+
+---
+
+###  Applikation
+
+#### Datenbankverbindung
+
+- Zentrale Datei: `db.php`
+- Enthält alle Verbindungsinformationen zur Datenbank.
+
+#### Konsistente Struktur
+
+- Gemeinsame Layout-Dateien:
+  - `header.php`: enthält Referenz zu `db.php`, essenziell für Datenbankzugriff.
+  - `footer.php`: gemeinsamer Footer für alle Seiten.
+
+#### Styling
+
+- Globale Styles: `style.css` im Root-Verzeichnis
+- Gilt für alle HTML-Elemente und sorgt für ein konsistentes Design.
+
+---
+
+###  Tasks
+
+Alle To-do-Funktionen befinden sich im Verzeichnis: `ticket/`.
+
+####  Funktionsumfang (CRUD)
+
+- **Create** – Neues Ticket anlegen
+- **Read** – Tickets anzeigen
+- **Update** – Bestehende Tickets bearbeiten
+- **Delete** – Tickets löschen
+
+#### Hauptseite: `index.php`
+
+- Zeigt alle To-dos des aktuell eingeloggten Benutzers dynamisch an.
+- Jeder Eintrag hat Buttons für:
+  - Bearbeiten (`edit.php`)
+  - Löschen (`delete.php`)
+
+---
+
+####  Erstellseite: `create.php`
+
+- Enthält ein Formular zum Erstellen eines neuen Tickets.
+- **Pflichtfelder:**
+  - Titel/Name (muss eindeutig sein)
+  - Fälligkeitsdatum
+  - Status (eine von drei Optionen):
+    - `Open`
+    - `In Work`
+    - `Closed`
+- **Optional:**
+  - Beschreibung
+
+---
+
+#### Editierseite: `edit.php`
+
+- Erlaubt das Ändern eines bestehenden Tickets.
+- Jeder Ticket-Eintrag auf der Hauptseite enthält einen Link zu dieser Seite.
+
+---
+
+####  Löschfunktion: `delete.php`
+
+- Jeder Ticket-Eintrag enthält einen Button zum Löschen.
+- Vor dem Löschen wird eine **Bestätigung (Confirm)** abgefragt, um versehentliches Löschen zu vermeiden.
 ## Compose.yml
 ```yml
 version: '3.8'

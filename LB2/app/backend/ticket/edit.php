@@ -27,7 +27,7 @@ if (!$ticket) {
     exit;
 }
 
-// Formular wurde abgeschickt
+// Formular abschicken
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'] ?? '';
     $description = $_POST['description'] ?? '';

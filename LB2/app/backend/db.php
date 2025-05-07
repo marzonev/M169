@@ -1,4 +1,4 @@
-<?php
+<?php #Credentials
 $host = 'm169_postgres';
 $db   = 'tododb';
 $user = 'm169';
@@ -12,9 +12,9 @@ $options = [
 ];
 
 try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
+    $pdo = new PDO($dsn, $user, $pass, $options); # Verbindungsversuch mit Datenbank
     // Kein echo hier!
 } catch (\PDOException $e) {
     echo "<h2>Verbindungsfehler:</h2>" . $e->getMessage();
-    exit; // Optional: Skript anhalten bei Fehler
+    exit; # Bei Fehler Echo weitergeben 
 }

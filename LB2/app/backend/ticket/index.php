@@ -10,9 +10,9 @@ if (!$userId) {
     exit;
 }
 
-$stmt = $pdo->prepare("SELECT * FROM tickets WHERE user_id = :id ORDER BY created_at DESC");
+$stmt = $pdo->prepare("SELECT * FROM tickets WHERE user_id = :id ORDER BY created_at DESC"); # Alle Tickets des Benutzers abholen
 $stmt->execute(['id' => $userId]);
-$tickets = $stmt->fetchAll();
+$tickets = $stmt->fetchAll(); # Alle Tickets in Variable abspeichern
 ?>
 
 <h2>Meine Tickets</h2>
@@ -32,9 +32,9 @@ $tickets = $stmt->fetchAll();
     </tr>
   </thead>
   <tbody>
-    <?php if (count($tickets) === 0): ?>
+    <?php if (count($tickets) === 0): ?> <!-- Wenn keine Tickets gefunden, Leere Tabelle anzeigen -->
       <tr><td colspan="4">Keine Tickets gefunden.</td></tr>
-    <?php else: ?>
+    <?php else: ?> <!-- Für jedes ticket ein Tabellenelement erstellen-->
       <?php foreach ($tickets as $ticket): ?>
         <tr>
           <td><?= htmlspecialchars($ticket['title']) ?></td>

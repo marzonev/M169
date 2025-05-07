@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../db.php'; // ggf. Pfad anpassen
+require_once '../db.php'; // Datenbank verbindung abholen
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: /auth/login.php");
@@ -10,8 +10,8 @@ if (!isset($_SESSION['user_id'])) {
 $error = '';
 $success = '';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = trim($_POST['title']);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { # Bearbeitung einreichen
+    $title = trim($_POST['title']); # Variablen auffüllen 
     $description = trim($_POST['description']);
     $status = $_POST['status'] ?? 'open';
     $due_date = $_POST['due_date'] ?? null;
@@ -19,9 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($title === '' || $description === '') {
         $error = "Bitte fülle alle Pflichtfelder aus.";
     } else {
-        $stmt = $pdo->prepare("INSERT INTO tickets (title, description, status, due_date, user_id) 
+        $stmt = $pdo->prepare("INSERT INTO tickets (title, description, status, due_date, user_id)  # neue Dateneinreichen
                                VALUES (:title, :description, :status, :due_date, :user_id)");
-        $stmt->execute([
+        $stmt->execute([ # Abfrage ausführen
             'title' => $title,
             'description' => $description,
             'status' => $status,
