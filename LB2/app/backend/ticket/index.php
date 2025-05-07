@@ -20,7 +20,6 @@ $tickets = $stmt->fetchAll();
 <a href="create.php" style="display: inline-block; margin-bottom: 20px; padding: 8px 16px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 5px;">
   ➕ Ticket erstellen
 </a>
-<input type="button" value="back" onclick="history.back()"/>
 
 <!-- Ticket-Tabelle -->
 <table border="1" cellpadding="5" cellspacing="0">

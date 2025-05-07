@@ -23,8 +23,21 @@ Unsere Web-Applikation ermöglicht es Benutzerinnen und Benutzern, Aufgaben (ToD
 - Die Anwendung ermöglicht das Erstellen, Anzeigen und Löschen von Aufgaben direkt über das PHP-Frontend ohne REST API.
 - Die gesamte Applikation wird per Docker Compose aufgebaut und im GitLab-Repository mit verständlicher Dokumentation versioniert.
 
----
 
+## App Vorschau
+![alt text](image-1.png)
+
+![alt text](image-4.png)
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+![alt text](image-5.png)
+
+![
+    
+](image-6.png)
 ## Datenbank
 
 Die Datenbank wird durch ein verändertes postgresql image erstellt. Das Image enthält bereits Logindaten zur Datenbank und ein init.sql welches beim ersten Start des Containers alle Tabellen erstellt.
@@ -93,6 +106,7 @@ CREATE TABLE tickets (    -- Erstellt die Tabelle "users"
 - Jedes `ticket` gehört genau zu einem `user`
 
 ## PHP Applikation
+
 Unsere Web-Applikation  wurde mit 3 verschiedenen Technologieen entwickelt
 - php (Backend- die verbindung zur Datenbank ermöglicht)
 - html (Frontend, das auch dynamisch vom php generiert werden kann)
@@ -110,6 +124,14 @@ Zusätzlich haben wir noch einheitliche Footer und Header, um Konsistenz zu gew�
 
 Zuletzt haben wir im Root Verzeichnis noch das Globale CSS file, ``style.css``, dort drin stehen alle Designs, die das HTML übernimmt, um eine Schöne Seite darstellen zu können.
 
+---
+### Tasks
+Alle Funktionen, die direkt etwas mit der To-do Funktion der Applikation zu tun haben, sind im `ticket/` Ordner zu finden.
+Grundsätzlich sind alle `CRUD` Funktionen verfügbar.
+
+Die Hauptsite findet man unter `index.php`. Dort werden alle To-dos, die dem eingeloggten User gehören, dynamisch angezeigt.
+
+Man findet auch die Knöpfe, die einen auf die Bearbeitungs-seite weiterleiten, und das löschen erlauben.
 
 ## Compose.yml
 ```yml
