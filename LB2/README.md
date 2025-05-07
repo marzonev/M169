@@ -150,7 +150,33 @@ Benutzerregistrierung mit folgenden Regeln:
 ---
 
 ###  Applikation
-
+#### Ordnerstrucktur
+``` 
+app/ 
+├── .vscode/ 
+├── backend/ 
+│ ├── auth/ 
+│ │ ├── login.php 
+│ │ ├── logout.php 
+│ │ ├── register.php 
+│ │ └── session.php 
+│ ├── ticket/ 
+│ │ ├── create.php 
+│ │ ├── delete.php 
+│ │ └── edit.php 
+│ ├── index.php 
+│ ├── db.php 
+│ ├── Dockerfile 
+│ ├── footer.php 
+│ ├── header.php 
+│ └── style.css 
+├── db/ 
+│ ├── Dockerfile 
+│ └── init.sql 
+├── nginx/ 
+├── docker-compose.yml 
+└── .gitignore 
+```
 #### Datenbankverbindung
 
 - Zentrale Datei: `db.php`
