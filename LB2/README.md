@@ -247,7 +247,7 @@ version: '3.8'
 
 services:
   php:
-    build: ./backend
+    image: ghcr.io/marzonev/m169-php:latest
     container_name: m169-php
     volumes:
       - ./backend:/var/www/html
