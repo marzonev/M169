@@ -250,7 +250,7 @@ services:
     image: ghcr.io/marzonev/m169-php:latest
     container_name: m169-php
     volumes:
-      - ./backend:/var/www/html
+      - phpdata:/var/www/html
     ports:
       - "80:80"  # Apache läuft auf Port 80
     depends_on:
@@ -274,5 +274,6 @@ services:
 
 volumes:
   pgdata:
+  phpdata:
 
 ```
