@@ -25,6 +25,8 @@ Unsere Web-Applikation ermöglicht es Benutzerinnen und Benutzern, Aufgaben (ToD
 
 
 ## App Vorschau
+
+Zugriffslink wenn Applikation läuft -> http://3.91.109.84/ticket/index.php
 ![index.php](image-7.png)
 
 ![create.php](image-4.png)
