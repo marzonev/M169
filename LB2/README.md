@@ -27,17 +27,17 @@ Unsere Web-Applikation ermöglicht es Benutzerinnen und Benutzern, Aufgaben (ToD
 ## App Vorschau
 
 Zugriffslink wenn Applikation läuft -> http://3.91.109.84/ticket/index.php
-![index.php](image-7.png)
+![index.php](images/image-7.png)
 
-![create.php](image-4.png)
+![create.php](images/image-4.png)
 
-![delete.php](image-2.png)
+![delete.php](images/image-2.png)
 
-![edit.php](image-3.png)
+![edit.php](images/image-3.png)
 
-![login.php](image-5.png)
+![login.php](images/image-5.png)
 
-![register.php](image-6.png)
+![register.php](images/image-6.png)
 ## Datenbank
 
 Die Datenbank wird durch ein verändertes postgresql image erstellt. Das Image enthält bereits Logindaten zur Datenbank und ein init.sql welches beim ersten Start des Containers alle Tabellen erstellt.
