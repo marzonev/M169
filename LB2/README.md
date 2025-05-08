@@ -277,3 +277,5 @@ volumes:
   phpdata:
 
 ```
+
+Das Compose ist [hier](app/docker-compose.yml) zu finden
