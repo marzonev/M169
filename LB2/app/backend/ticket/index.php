@@ -27,8 +27,8 @@ $tickets = $stmt->fetchAll(); # Alle Tickets in Variable abspeichern
     <tr>
       <th>Titel</th>
       <th>Status</th>
+      <th>Beschreibung</th>
       <th>Fällig am</th>
-      <th>Aktionen</th>
     </tr>
   </thead>
   <tbody>
