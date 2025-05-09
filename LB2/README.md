@@ -173,7 +173,6 @@ app/
 ├── db/ 
 │ ├── Dockerfile 
 │ └── init.sql 
-├── nginx/ 
 ├── docker-compose.yml 
 └── .gitignore 
 ```
